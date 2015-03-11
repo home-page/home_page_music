@@ -1,0 +1,14 @@
+<% content_for :title do %><%= t('music_videos.index.title') %><% end %>
+
+<% if @videos['entries'].none? %>
+<p><%= t('music_videos.index.empty_collection') %></p>
+<% else %>
+  <% @videos['entries'].each do |video| %>
+<h5><%= link_to(
+  "#{video['artist_name']} – #{video['track_name']} (#{video['status']})", 
+  "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/videos/#{video['id']}"
+) %> <%= t('general.liked_at') %> <%= DateTime.parse(video['liked_at']).strftime('%d.%m.%Y %H:%M:%S') %></h4>
+<p><%= markdown video['url'] %></p>
+  <% end %>
+<%= will_paginate @pagination, renderer: BootstrapPagination::Rails %>
+<% end %>

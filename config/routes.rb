@@ -6,6 +6,8 @@ Rails.application.routes.draw do
         get :top_songs
       end
     end
+    
+    resources :videos, only: [:index]
   end
   
   get 'music' => 'music/home#index', as: :music

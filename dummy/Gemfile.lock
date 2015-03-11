@@ -13,7 +13,7 @@ GIT
 PATH
   remote: ../../home_page
   specs:
-    home_page (0.0.4)
+    home_page (0.0.5)
       activerecord-deprecated_finders (~> 1.0.3)
       albino (~> 1.3.3)
       auto_html (~> 1.6.4)
@@ -42,7 +42,7 @@ PATH
   remote: /Users/gawlim/workspace/home_page/home_page_music
   specs:
     home_page_music (0.0.1)
-      home_page (~> 0.0.4)
+      home_page (~> 0.0.5)
 
 GEM
   remote: http://gems.github.com/
