@@ -1,0 +1,16 @@
+<% content_for :title do %><%= t('music_year_in_reviews.show.title', year: params[:id]) %><% end %>
+
+<ul class="nav nav-pills nav-stacked">
+  <li>
+    <%= link_to(
+      t('music_year_in_reviews.show.top_albums.short_title'), 
+      top_albums_music_year_in_review_path(params[:id]) 
+    ) %>
+  </li>
+  <li>
+    <%= link_to(
+      t('music_year_in_reviews.show.top_songs.short_title'), 
+      top_songs_music_year_in_review_path(params[:id]) 
+    ) %>
+  </li>
+</ul>

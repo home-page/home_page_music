@@ -1,0 +1,31 @@
+<% content_for :title do %><%= t('music_year_in_reviews.show.top_albums.title', year: params[:id]) %><% end %>
+
+<% if @albums.none? %>
+<p><%= t('music_year_in_reviews.show.top_albums.empty_collection') %></p>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <th style="width: 50px; vertical-align:top;"><%= t('general.position') %></th>
+        <th style="width: 200px; vertical-align:top;"><%= t('music.general.music_artist.short') %></th>
+        <th style="width: 200px; vertical-align:top;"><%= t('general.name') %></th>
+        <th style="width: 67px; vertical-align:top;"><%= t('music_year_in_reviews.show.top_track_positions_sum')%></th>
+        <th style="width: 300px; vertical-align:top;"><%= t('music_year_in_reviews.show.top_songs.short_title') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @albums.each do |album| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%= album['position'] %></td>
+        <td><%= link_to album['artist_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/artists/#{album['artist_id']}" %></td>
+        <td><%= link_to album['release_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/releases/#{album['release_id']}" %></td>
+        <td><%= album['top_track_positions_sum'] %></td>
+        <td>
+          <%= raw(album['top_tracks'].map do |t| 
+            "#{t['position']}. " + link_to(t['track_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/tracks/#{t['track_id']}")
+          end.join(', ')) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

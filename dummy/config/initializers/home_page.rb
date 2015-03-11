@@ -1,0 +1,1 @@
+HomePage::Navigation::Base.items = [[:music, :music], :users, :authentication]

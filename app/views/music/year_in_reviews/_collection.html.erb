@@ -1,0 +1,35 @@
+<% if @year_in_reviews['entries'].none? %>
+<p><%= t('music_year_in_reviews.index.empty_collection') %></p>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <th style="width: 45px"><%= t("general.year") %></th>
+        <th style="width: 100px"></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @year_in_reviews['entries'].each do |year_in_review| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td>
+          <%= link_to year_in_review['year'], music_year_in_review_path(year_in_review['year']) %>
+        </td>
+        <td>
+          <%= link_to(
+            t('music_year_in_reviews.show.top_albums.short_title'), 
+            music_year_in_review_top_albums_path(year_in_review['year']) 
+          ) %>
+        </td>
+        <td>
+          <%= link_to(
+            t('music_year_in_reviews.show.top_songs.short_title'), 
+            music_year_in_review_top_songs_path(year_in_review['year']) 
+          ) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <%= will_paginate @pagination, renderer: BootstrapPagination::Rails %>
+<% end %>

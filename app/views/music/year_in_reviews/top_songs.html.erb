@@ -1,0 +1,23 @@
+<% content_for :title do %><%= t('music_year_in_reviews.show.top_songs.title', year: params[:id]) %><% end %>
+
+<% if @songs.none? %>
+<p><%= t('music_year_in_reviews.show.top_songs.empty_collection') %></p>
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <th style="width: 50px; vertical-align:top;"><%= t('general.position') %></th>
+        <th style="width: 200px; vertical-align:top;"><%= t('music.general.music_artist.short') %></th>
+        <th style="width: 200px; vertical-align:top;"><%= t('general.name') %></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @songs.each do |song| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td><%= song['position'] %></td>
+        <td><%= link_to song['artist_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/artists/#{song['artist_id']}" %></td>
+        <td><%= link_to song['track_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/tracks/#{song['track_id']}" %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

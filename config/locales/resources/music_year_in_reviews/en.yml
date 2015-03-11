@@ -1,0 +1,21 @@
+en:
+  music_year_in_reviews:
+    index:
+      title: Music Year in Reviews
+      short_title: Year in Reviews
+      empty_collection: No year in reviews available.
+    
+    show:
+      title: "Music Year in Review %{year}"
+      short_title: "Year in Review %{year}"
+      top_track_positions_sum: Top Track Positions Sum
+      
+      top_albums:
+        title: Top Albums %{year}
+        short_title: Top Albums
+        empty_collection: No top albums available.
+        
+      top_songs:
+        title: Top Songs %{year}
+        short_title: Top Songs
+        empty_collection: No top songs available.

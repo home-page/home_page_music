@@ -1,0 +1,8 @@
+en:
+  music:
+    index:
+      title: Music
+       
+    general:
+      music_artist: 
+        short: Artist
