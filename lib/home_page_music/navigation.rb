@@ -2,7 +2,7 @@ module HomePageMusic
   module Navigation
     def self.menu_code(resource)
       case resource
-      when :music
+      when 'music'
         Proc.new do |primary, options|
           primary.item :music, I18n.t('music.index.title'), music_path do |music|
             music.item :year_in_reviews, I18n.t('music_year_in_reviews.index.short_title'), music_year_in_reviews_path do |year_in_reviews|
