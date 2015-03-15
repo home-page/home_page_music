@@ -10,7 +10,7 @@ class Music::YearInReviewsController < ApplicationController
     end
     
     if @year_in_reviews.nil?
-      flash[:alert] = I18n.t('general.volontariat.request_failed')
+      flash[:alert] = I18n.t('general.apis.request_failed', provider: 'Volontari.at')
       @year_in_reviews = { 'entries' => [] }
     else
       @pagination = HomePage::PaginationMetadata.new(@year_in_reviews)
