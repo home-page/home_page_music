@@ -1,0 +1,6 @@
+en:
+  general:
+    apis:
+      providers:
+        lastfm:
+          title: Last.fm

@@ -1,0 +1,22 @@
+en:
+  settings:
+    index:
+      plugins:
+        home_page_music:
+          index:
+            title: Music
+          tabs:
+            general:
+              title: General
+              
+    vars:
+      home_page_music:
+        apis:
+          providers:
+            lastfm:
+              charts:
+                types:
+                  recent_tracks:
+                    is_image: Is image?
+                    design: Design
+                    tracks_count: Tracks Count
