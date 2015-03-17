@@ -18,5 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'home_page', '~> 0.0.5'
 
+  s.add_dependency 'lastfm', '~> 1.26.0'
+
   s.add_development_dependency 'mysql2'
 end

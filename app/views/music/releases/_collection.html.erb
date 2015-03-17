@@ -1,0 +1,19 @@
+<% if (@releases || []).none? %>
+<p><%= t('music.index.top_releases.none') %></p>
+<% else %>
+  <table class="table table-striped">
+    <tbody>
+    <% @releases.each do |release| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td style="width:70px; text-align:right;">
+          <%= image_tag (release['image'] || []).select{|i| i['size'] == 'medium' }.first['content'] %>
+        </td>
+        <td style="width: 50px; text-align:right;"><%= release['rank'] %></td>
+        <td style="width: 100%;">
+          <%= link_to release['artist']['name'], release['artist']['url'] %> – <%= link_to release['name'], release['url'] %>
+        </td>
+        <td style="width: 50px; text-align:right;"><%= release['playcount'] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

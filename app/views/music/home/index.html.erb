@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        <%= t('music.index.recent_tracks.title') %>
+      </div>
+      <div class="chart-stage">
+        <%= render partial: 'music/tracks/collection', locals: { tracks: @recent_tracks, recent: true } %>
+      </div>
+      <div class="chart-notes" style="text-align:center;">
+        <%= link_to t('general.more'), "http://www.last.fm/user/#{@user_name}/tracks" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        <%= t('music.index.top_artists.title') %>
+      </div>
+      <div class="chart-stage">
+        <%= render partial: 'music/artists/collection' %>
+      </div>
+      <div class="chart-notes" style="text-align:center;">
+        <%= link_to t('general.more'), "http://www.last.fm/user/#{@user_name}/charts?rangetype=overall&subtype=artists" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        <%= t('music.index.top_releases.title') %>
+      </div>
+      <div class="chart-stage">
+        <%= render partial: 'music/releases/collection' %>
+      </div>
+      <div class="chart-notes" style="text-align:center;">
+        <%= link_to t('general.more'), "http://www.last.fm/user/#{@user_name}/charts?rangetype=overall&subtype=albums" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <div class="chart-wrapper">
+      <div class="chart-title">
+        <%= t('music.index.top_tracks.title') %>
+      </div>
+      <div class="chart-stage">
+        <%= render partial: 'music/tracks/collection', locals: { tracks: @tracks } %>
+      </div>
+      <div class="chart-notes" style="text-align:center;">
+        <%= link_to t('general.more'), "http://www.last.fm/user/#{@user_name}/charts?rangetype=overall&subtype=tracks" %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<% if (@artists || []).none? %>
+<p><%= t('music.index.top_artists.none') %></p>
+<% else %>
+  <table class="table table-striped">
+    <tbody>
+    <% @artists.each do |artist| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+        <td style="width:70px; text-align:right;">
+          <%= image_tag (artist['image'] || []).select{|i| i['size'] == 'medium' }.first['content'] %>
+        </td>
+        <td style="width: 50px; text-align:right;"><%= artist['rank'] %></td>
+        <td style="width: 100%;">
+          <%= link_to artist['name'], artist['url'] %>
+        </td>
+        <td style="width: 50px; text-align:right;"><%= artist['playcount'] %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

@@ -1,0 +1,33 @@
+<% recent ||= false %>
+
+<% if (tracks || []).none? %>
+<p><%= t('music.index.top_tracks.none') %></p>
+<% else %>
+  <table class="table table-striped">
+    <tbody>
+    <% tracks.each do |track| %>
+      <tr class="<%= cycle('odd', 'even') %>">
+      <% if recent %>  
+        <td style="width:70px; text-align:right;">
+          <%= image_tag (track['image'] || []).select{|i| i['size'] == 'medium' }.first['content'] %>
+        </td>
+      <% else %>
+        <td style="width:50px; text-align:right;"><%= track['rank'] %></td>
+      <% end %>
+        <td style="width:100%;">
+          <%= link_to track['artist']['name'], track['artist']['url'] %> – <%= link_to track['name'], track['url'] %>
+        </td>
+        <td style="width:50px; text-align:right;"><%= track['playcount'] %></td>
+      <% if recent %>   
+        <td style="width:100px; text-align:center; white-space:nowrap;">
+        <% if track['nowplaying'] %>
+          <%= t('music.index.recent_tracks.listening_now') %>
+        <% else %>
+          <%= DateTime.parse(track['date']['content']).strftime('%d.%m.%Y %H:%M') %>
+        <% end %>
+        </td>
+      <% end %>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

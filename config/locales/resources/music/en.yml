@@ -2,7 +2,19 @@ en:
   music:
     index:
       title: Music
-       
+      recent_tracks: 
+        title: Recently Listened Tracks
+        listening_now: Listening now
+      top_artists:
+        title: Top Artists
+        none: No top artists available.
+      top_releases:
+        title: Top Releases
+        none: No top releases available.
+      top_tracks:
+        title: Top Tracks
+        none: No top tracks available.
+          
     general:
       music_artist: 
         short: Artist
