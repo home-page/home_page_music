@@ -11,3 +11,7 @@ Setting.defaults['home_page.apis.providers.lastfm.charts.types.recent_tracks.des
 Setting.defaults['home_page.apis.providers.lastfm.charts.types.recent_tracks.tracks_count'] = 6
 Setting.defaults['home_page.apis.providers.lastfm.key'] = ''
 Setting.defaults['home_page.apis.providers.lastfm.secret'] = ''
+
+Setting.defaults['home_page_music.general.partial_paths'] = [
+  'music/tracks/recent_chart_image'
+]
