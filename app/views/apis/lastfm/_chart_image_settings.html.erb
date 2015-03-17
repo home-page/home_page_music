@@ -1,0 +1,21 @@
+<div role="tabpanel">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a 
+        href="#home_page_music_settings_apis_lastfm_recent_tracks_chart_image" 
+        aria-controls="home_page_music_settings_apis_lastfm_recent_tracks_chart_image" role="tab" data-toggle="tab"
+      >
+        <%= t('settings.index.plugins.home_page_music.tabs.apis.lastfm.chart_images.recent_tracks.title') %>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home_page_music_settings_apis_lastfm_recent_tracks_chart_image">
+      <p>
+        <%= setting_input f, 'home_page.apis.providers.lastfm.charts.types.recent_tracks.is_image' %>
+        <%= setting_input f, 'home_page.apis.providers.lastfm.charts.types.recent_tracks.design' %>
+        <%= setting_input f, 'home_page.apis.providers.lastfm.charts.types.recent_tracks.tracks_count' %>
+      </p>
+    </div>
+  </div>
+</div>

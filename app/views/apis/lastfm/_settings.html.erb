@@ -1,4 +1,28 @@
-<%= setting_input f, 'home_page.apis.providers.lastfm.user_name', label: t('general.apis.user_name'), required: true %>
-<%= setting_input f, 'home_page.apis.providers.lastfm.charts.types.recent_tracks.is_image' %>
-<%= setting_input f, 'home_page.apis.providers.lastfm.charts.types.recent_tracks.design' %>
-<%= setting_input f, 'home_page.apis.providers.lastfm.charts.types.recent_tracks.tracks_count' %>
+<div role="tabpanel">
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active">
+      <a href="#home_page_music_settings_apis_lastfm_general" aria-controls="home_page_music_settings_apis_lastfm_general" role="tab" data-toggle="tab">
+        <%= t('settings.index.plugins.home_page.tabs.general.title') %>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#home_page_music_settings_apis_lastfm_chart_images" aria-controls="home_page_music_settings_apis_lastfm_chart_images" role="tab" data-toggle="tab">
+        <%= t('settings.index.plugins.home_page_music.tabs.apis.lastfm.chart_images.title') %>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="home_page_music_settings_apis_lastfm_general">
+      <p>
+        <%= setting_input f, 'home_page.apis.providers.lastfm.user_name', label: t('general.apis.user_name'), required: true %>
+        <%= setting_input f, 'home_page.apis.providers.lastfm.key', label: t('general.apis.key'), required: true %>
+        <%= setting_input f, 'home_page.apis.providers.lastfm.secret', label: t('general.apis.secret'), required: true %>
+      </p>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="home_page_music_settings_apis_lastfm_chart_images">
+      <p>
+        <%= render partial: 'apis/lastfm/chart_image_settings', locals: { f: f } %>
+      </p>
+    </div>
+  </div>
+</div>

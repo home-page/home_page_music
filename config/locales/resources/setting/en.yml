@@ -8,6 +8,12 @@ en:
           tabs:
             general:
               title: General
+            apis:
+              lastfm:
+                chart_images:
+                  title: Chart Images
+                  recent_tracks:
+                    title: Recent Tracks            
               
     vars:
       home_page_music:
