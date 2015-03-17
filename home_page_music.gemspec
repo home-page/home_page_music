@@ -11,12 +11,12 @@ Gem::Specification.new do |s|
   s.email       = ['gawlista@gmail.com']
   s.homepage    = 'http://Blog.Home-Page.Software'
   s.summary     = 'Music module for home_page gem.'
-  s.description = 'Music module for home_page gem.'
+  s.description = 'Music plugin for #Rails CMS http://Home-Page.Software - changes: http://bit.ly/home-page-music-0-0-2'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
 
-  s.add_dependency 'home_page', '~> 0.0.5'
+  s.add_dependency 'home_page', '~> 0.0.6'
 
   s.add_dependency 'lastfm', '~> 1.26.0'
 
