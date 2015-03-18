@@ -17,12 +17,12 @@
     <% @albums.each do |album| %>
       <tr class="<%= cycle('odd', 'even') %>">
         <td><%= album['position'] %></td>
-        <td><%= link_to album['artist_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/artists/#{album['artist_id']}" %></td>
-        <td><%= link_to album['release_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/releases/#{album['release_id']}" %></td>
+        <td><%= link_to album['artist_name'], "#{@host}/music/artists/#{album['artist_id']}" %></td>
+        <td><%= link_to album['release_name'], "#{@host}/music/releases/#{album['release_id']}" %></td>
         <td><%= album['top_track_positions_sum'] %></td>
         <td>
           <%= raw(album['top_tracks'].map do |t| 
-            "#{t['position']}. " + link_to(t['track_name'], "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/tracks/#{t['track_id']}")
+            "#{t['position']}. " + link_to(t['track_name'], "#{@host}/music/tracks/#{t['track_id']}")
           end.join(', ')) %>
         </td>
       </tr>

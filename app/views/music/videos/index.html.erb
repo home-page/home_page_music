@@ -6,7 +6,7 @@
   <% @videos['entries'].each do |video| %>
 <h5><%= link_to(
   "#{video['artist_name']} – #{video['track_name']} (#{video['status']})", 
-  "#{Volontariat::HOSTS[Rails.env.to_s.to_sym]}/music/videos/#{video['id']}"
+  "#{@host}/music/videos/#{video['id']}"
 ) %> <%= t('general.liked_at') %> <%= DateTime.parse(video['liked_at']).strftime('%d.%m.%Y %H:%M:%S') %></h4>
 <p><%= markdown video['url'] %></p>
   <% end %>
