@@ -14,6 +14,11 @@ en:
       top_tracks:
         title: Top Tracks
         none: No top tracks available.
+    
+    resources:
+      year_in_review:
+        one: Year in Review
+        other: Years in Review
           
     general:
       music_artist: 
