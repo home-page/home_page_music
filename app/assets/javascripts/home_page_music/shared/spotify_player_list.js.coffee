@@ -2,8 +2,6 @@ class @SpotifyPlayerList
   constructor: ->
     window.spotify_player_list = {}
     
-    alert 'ok'
-    
     $(document.body).on "click", ".spotify_player_list_item_play_button", (event) ->
       event.preventDefault()
       iframeHtml = if $(this).data('model') == 'Track'
