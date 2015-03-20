@@ -4,7 +4,10 @@
   <table class="table table-striped">
     <tbody>
     <% @releases.each do |release| %>
-      <tr class="<%= cycle('odd', 'even') %>">
+      <tr 
+        class="spotify_player_list_item <%= cycle('odd', 'even') %>"
+        data-model="Release" data-artist-name="<%= release['artist']['name'] %>" data-name="<%= release['name'] %>"
+      >
         <td style="width:70px; text-align:right;">
           <%= image_tag (release['image'] || []).select{|i| i['size'] == 'medium' }.first['content'] %>
         </td>
@@ -13,6 +16,14 @@
           <%= link_to release['artist']['name'], release['artist']['url'] %> – <%= link_to release['name'], release['url'] %>
         </td>
         <td style="width: 50px; text-align:right;"><%= release['playcount'] %></td>
+        <td style="width: 50px; text-align:center;">
+          <i 
+            class="hide spotify_player_list_item_play_icon glyphicon glyphicon-play" style="cursor:pointer; cursor:hand;" 
+            data-model="Release"
+          >
+          </i>
+          <%= image_tag 'home_page/spinner.gif', class: 'spotify_player_list_item_spinner' %>
+        </td>
       </tr>
     <% end %>
   </table>

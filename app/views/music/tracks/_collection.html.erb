@@ -6,7 +6,10 @@
   <table class="table table-striped">
     <tbody>
     <% tracks.each do |track| %>
-      <tr class="<%= cycle('odd', 'even') %>">
+      <tr 
+        class="spotify_player_list_item <%= cycle('odd', 'even') %>" 
+        data-model="Track" data-artist-name="<%= track['artist']['name'] %>" data-name="<%= track['name'] %>"
+      >
       <% if recent %>  
         <td style="width:70px; text-align:right;">
           <%= image_tag (track['image'] || []).select{|i| i['size'] == 'medium' }.first['content'] %>
@@ -27,6 +30,14 @@
         <% end %>
         </td>
       <% end %>
+        <td class="list-element-striped" style="width: 50px; text-align:center;">
+          <i 
+            class="hide spotify_player_list_item_play_icon glyphicon glyphicon-play" style="cursor:pointer; cursor:hand;" 
+            data-model="Track"
+          >
+          </i>
+          <%= image_tag 'home_page/spinner.gif', class: 'spotify_player_list_item_spinner' %>
+        </td>
       </tr>
     <% end %>
   </table>

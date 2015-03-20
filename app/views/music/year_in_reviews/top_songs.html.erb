@@ -9,15 +9,32 @@
         <th style="width: 50px; vertical-align:top;"><%= t('general.position') %></th>
         <th style="width: 200px; vertical-align:top;"><%= t('music.general.music_artist.short') %></th>
         <th style="width: 200px; vertical-align:top;"><%= t('general.name') %></th>
+        <th style="width: 50px;"></th>
       </tr>
     </thead>
     <tbody>
     <% @songs.each do |song| %>
-      <tr class="<%= cycle('odd', 'even') %>">
+      <tr 
+        class="spotify_player_list_item <%= cycle('odd', 'even') %>" 
+        data-model="Track" data-artist-name="<%= song['artist_name'] %>" data-name="<%= song['track_name'] %>"
+      >
         <td><%= song['position'] %></td>
         <td><%= link_to song['artist_name'], "#{@host}/music/artists/#{song['artist_id']}" %></td>
         <td><%= link_to song['track_name'], "#{@host}/music/tracks/#{song['track_id']}" %></td>
+        <td style="width: 50px; text-align:center;">
+          <i 
+            class="hide spotify_player_list_item_play_icon glyphicon glyphicon-play" style="cursor:pointer; cursor:hand;" 
+            data-model="Track"
+          >
+          </i>
+          <%= image_tag 'home_page/spinner.gif', class: 'spotify_player_list_item_spinner' %>
+        </td>
       </tr>
     <% end %>
   </table>
+  
+  <% content_for :document_ready do %>
+    window.volontariatHost = "<%= HomePage::ApiProviderHost.new('volontariat', Rails.env).to_s %>";
+    new SpotifyPlayerList();
+  <% end %>
 <% end %>

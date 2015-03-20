@@ -11,11 +11,15 @@
         <th style="width: 200px; vertical-align:top;"><%= t('general.name') %></th>
         <th style="width: 67px; vertical-align:top;"><%= t('music_year_in_reviews.show.top_track_positions_sum')%></th>
         <th style="width: 300px; vertical-align:top;"><%= t('music_year_in_reviews.show.top_songs.short_title') %></th>
+        <th style="width: 50px;"></th>
       </tr>
     </thead>
     <tbody>
     <% @albums.each do |album| %>
-      <tr class="<%= cycle('odd', 'even') %>">
+      <tr 
+        class="spotify_player_list_item <%= cycle('odd', 'even') %>" 
+        data-model="Release" data-artist-name="<%= album['artist_name'] %>" data-name="<%= album['release_name'] %>"
+      >
         <td><%= album['position'] %></td>
         <td><%= link_to album['artist_name'], "#{@host}/music/artists/#{album['artist_id']}" %></td>
         <td><%= link_to album['release_name'], "#{@host}/music/releases/#{album['release_id']}" %></td>
@@ -25,7 +29,20 @@
             "#{t['position']}. " + link_to(t['track_name'], "#{@host}/music/tracks/#{t['track_id']}")
           end.join(', ')) %>
         </td>
+        <td style="width: 50px; text-align:center;">
+          <i 
+            class="hide spotify_player_list_item_play_icon glyphicon glyphicon-play" style="cursor:pointer; cursor:hand;" 
+            data-model="Release"
+          >
+          </i>
+          <%= image_tag 'home_page/spinner.gif', class: 'spotify_player_list_item_spinner' %>
+        </td>
       </tr>
     <% end %>
   </table>
+  
+  <% content_for :document_ready do %>
+    window.volontariatHost = "<%= HomePage::ApiProviderHost.new('volontariat', Rails.env).to_s %>";
+    new SpotifyPlayerList();
+  <% end %>
 <% end %>

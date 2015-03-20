@@ -38,6 +38,8 @@ class Music::YearInReviewsController < ApplicationController
   end
   
   def top_albums
+    @home_page_javascripts = ['home_page/application', 'home_page_music/application']
+    
     unless @host.blank? || @user_id.blank?
       @year_in_review = { 'year' => params[:id] }
       
@@ -53,6 +55,8 @@ class Music::YearInReviewsController < ApplicationController
   end
   
   def top_songs
+    @home_page_javascripts = ['home_page/application', 'home_page_music/application']
+    
     unless @host.blank? || @user_id.blank?
       @year_in_review = { 'year' => params[:id] }
       
