@@ -32,6 +32,8 @@ class Music::HomeController < ApplicationController
         end
       end
       
+      @hide_footer = true
+      
       render layout: 'fluid/without_rows'
     else
       flash[:alert] = t('general.apis.settings_missing', provider: 'last.fm') if user_signed_in?
